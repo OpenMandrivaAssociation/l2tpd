@@ -24,6 +24,7 @@ Patch2:		%{name}-cfgpath.patch.bz2
 Patch3:		%{name}-0.69-gcc-3.3.patch.bz2
 Patch4:		%{name}-0.69-gcc-3.4.patch.bz2
 Patch5:         %{name}-0.69-gcc4.patch
+BuildRoot:	%_tmppath/%{name}-%{version}-%{release}-buildroot
 Summary:        User-space implementation of L2TP (RFC 2661) for Linux
 Requires:	chkconfig fileutils ppp
 Requires(preun):rpm-helper
