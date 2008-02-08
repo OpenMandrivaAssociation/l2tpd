@@ -1,6 +1,6 @@
 %define	name	l2tpd
 %define	version	0.69
-%define	release	%mkrel 15
+%define	release	%mkrel 16
 
 Name:		%{name}
 Version:	%{version}
@@ -26,7 +26,7 @@ Patch4:		%{name}-0.69-gcc-3.4.patch.bz2
 Patch5:         %{name}-0.69-gcc4.patch
 BuildRoot:	%_tmppath/%{name}-%{version}-%{release}-buildroot
 Summary:        User-space implementation of L2TP (RFC 2661) for Linux
-Requires:	chkconfig fileutils ppp
+Requires:	chkconfig coreutils ppp
 Requires(preun):rpm-helper
 
 %description
