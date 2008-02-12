@@ -30,7 +30,6 @@ Requires:	chkconfig coreutils ppp
 Requires(preun):rpm-helper
 
 %description
-
 l2tpd is an implementation of the layer two tunneling protocol. It works
 in userspace completely (although kernel work is planned after the
 userspace version is stablized).  l2tpd works by opening a pseudo-tty
