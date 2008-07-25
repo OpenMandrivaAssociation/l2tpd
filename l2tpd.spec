@@ -1,6 +1,6 @@
 %define	name	l2tpd
 %define	version	0.69
-%define	release	%mkrel 16
+%define	release	%mkrel 18
 
 Name:		%{name}
 Version:	%{version}
