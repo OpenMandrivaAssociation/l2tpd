@@ -17,12 +17,12 @@ Source3:        %{name}-options.l2tpd.bz2
 Source4:        %{name}-L2TPD-PSK.conf
 Source5:        %{name}-L2TPD-CERT.conf
 #SysV style pty allocation patch from Debian(modified)
-Patch0:		%{name}-pty.patch.bz2
+Patch0:		%{name}-pty.patch
 #Close stdin for daemon mode
-Patch1:		%{name}-close.patch.bz2
-Patch2:		%{name}-cfgpath.patch.bz2
-Patch3:		%{name}-0.69-gcc-3.3.patch.bz2
-Patch4:		%{name}-0.69-gcc-3.4.patch.bz2
+Patch1:		%{name}-close.patch
+Patch2:		%{name}-cfgpath.patch
+Patch3:		%{name}-0.69-gcc-3.3.patch
+Patch4:		%{name}-0.69-gcc-3.4.patch
 Patch5:         %{name}-0.69-gcc4.patch
 BuildRoot:	%_tmppath/%{name}-%{version}-%{release}-buildroot
 Summary:        User-space implementation of L2TP (RFC 2661) for Linux
