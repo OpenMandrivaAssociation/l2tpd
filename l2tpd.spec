@@ -1,12 +1,12 @@
 %define	name	l2tpd
 %define	version	0.69
-%define	release	%mkrel 18
+%define	release	%mkrel 19
 
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
-License:	GPL
-Url:		http://www.l2tpd.org/
+License:	GPL v2
+Url:		http://l2tpd.sourceforge.net/
 Group:		System/Servers
 Source0:	%{name}-%{version}.tar.bz2
 Source1:	%{name}-init.bz2
@@ -14,8 +14,8 @@ Source1:	%{name}-init.bz2
 Source2:	%{name}.conf.bz2
 Source3:        %{name}-options.l2tpd.bz2
 # Two sample FreeS/WAN configuration files
-Source4:        %{name}-L2TPD-PSK.conf.bz2
-Source5:        %{name}-L2TPD-CERT.conf.bz2
+Source4:        %{name}-L2TPD-PSK.conf
+Source5:        %{name}-L2TPD-CERT.conf
 #SysV style pty allocation patch from Debian(modified)
 Patch0:		%{name}-pty.patch.bz2
 #Close stdin for daemon mode
