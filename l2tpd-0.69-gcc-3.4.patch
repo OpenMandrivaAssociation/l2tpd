@@ -1,0 +1,11 @@
+--- l2tpd-0.69/avp.c~	2002-08-19 17:39:27.000000000 +0200
++++ l2tpd-0.69/avp.c	2004-07-25 19:59:15.335072457 +0200
+@@ -1608,7 +1608,7 @@ int handle_avps (struct buffer *buf, str
+             if (AMBIT (avp->length))
+             {
+                 log (LOG_WARN,
+-                     "%s:  dont know how to handle mandatory attribute %d.  Closing %s.\n"
++                     "%s:  dont know how to handle mandatory attribute %d.  Closing %s.\n",
+                      __FUNCTION__, avp->attr,
+                      (c != t->self) ? "call" : "tunnel");
+                 set_error (c, VENDOR_ERROR,

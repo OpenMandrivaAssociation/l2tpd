@@ -1,0 +1,85 @@
+--- l2tpd.c.orig	Thu Oct 17 11:42:47 2002
++++ l2tpd.c	Thu Oct 17 11:42:53 2002
+@@ -14,6 +14,7 @@
+  */
+ 
+ #include <stdlib.h>
++#include <sys/types.h>
+ #include <sys/utsname.h>
+ #include <sys/stat.h>
+ #include <sys/wait.h>
+@@ -259,8 +260,8 @@ void death_handler (int signal)
+ 
+ int start_pppd (struct call *c, struct ppp_opts *opts)
+ {
+-    char a, b;
+-    char tty[80];
++    /* char a, b; */
++    char *tty;
+     char *stropt[80];
+     struct ppp_opts *p;
+ #ifdef USE_KERNEL
+@@ -309,12 +310,45 @@ int start_pppd (struct call *c, struct p
+     else
+     {
+ #endif
+-        if ((c->fd = getPtyMaster (&a, &b)) < 0)
++	c->fd = open("/dev/ptmx", O_RDWR);
++	if (c->fd == -1)
++	{
++		log (LOG_WARN, "%s: unable to open /dev/ptmx to allocate pty\n",
++				__FUNCTION__);
++		return -EINVAL;
++	} else
++	{
++	    if (grantpt(c->fd))
++	    {
++		log (LOG_WARN, "%s: unable to grantpt() on pty\n",
++				__FUNCTION__);
++		close(c->fd);
++		return -EINVAL;
++	    }
++	    if (unlockpt(c->fd))
++	    {
++		log (LOG_WARN, "%s: unable to unlockpt() on pty\n",
++			__FUNCTION__);
++		close(c->fd);
++		return -EINVAL;
++	    }
++	    tty = ptsname(c->fd);
++	    if (tty == NULL)
++	    {
++		log (LOG_WARN, "%s: unable to obtain name of slave tty\n",
++			__FUNCTION__);
++		close(c->fd);
++		return -EINVAL;
++	    }
++	}
++	
++	
++ /*	if ((c->fd = getPtyMaster (&a, &b)) < 0)
+         {
+             log (LOG_WARN, "%s: unable to allocate pty, abandoning!\n",
+                  __FUNCTION__);
+             return -EINVAL;
+-        }
++        } */
+ 
+         /* set fd opened above to not echo so we don't see read our own packets
+            back of the file descriptor that we just wrote them to */
+@@ -323,8 +357,14 @@ int start_pppd (struct call *c, struct p
+         ptyconf.c_cflag &= ~(ICANON | ECHO);
+         tcsetattr (c->fd, TCSANOW, &ptyconf);
+ 
+-        snprintf (tty, sizeof (tty), "/dev/tty%c%c", a, b);
++/*        snprintf (tty, sizeof (tty), "/dev/tty%c%c", a, b); */
+         fd2 = open (tty, O_RDWR);
++	if (fd2 == -1)
++	{
++		log (LOG_WARN, "%s: unable to open slave tty %s\n", __FUNCTION__, tty);
++		close(c->fd);
++		return -EINVAL;
++	}
+ 
+ #ifdef USE_KERNEL
+     }

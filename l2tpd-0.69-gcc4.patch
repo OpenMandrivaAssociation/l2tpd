@@ -1,0 +1,11 @@
+--- l2tpd-0.69/aaa.c~	2002-04-23 21:50:49.000000000 +0200
++++ l2tpd-0.69/aaa.c	2005-10-28 13:54:46.000000000 +0200
+@@ -25,7 +25,7 @@
+ 
+ /* FIXME: Accounting? */
+ 
+-static struct addr_ent *uaddr[ADDR_HASH_SIZE];
++struct addr_ent *uaddr[ADDR_HASH_SIZE];
+ 
+ void init_addr ()
+ {

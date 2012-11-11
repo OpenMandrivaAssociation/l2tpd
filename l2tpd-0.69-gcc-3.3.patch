@@ -1,0 +1,24 @@
+diff -pur l2tpd-0.69.orig/call.c l2tpd-0.69/call.c
+--- l2tpd-0.69.orig/call.c	2002-08-10 02:47:25.000000000 +0200
++++ l2tpd-0.69/call.c	2003-07-13 04:51:50.000000000 +0200
+@@ -193,7 +193,7 @@ int read_packet (struct buffer *buf, int
+         }
+     }
+     /* I should never get here */
+-    log (LOG_WARN, "%s: You should not see this message.  If you do, please
++    log (LOG_WARN, "%s: You should not see this message.  If you do, please\n\
+ 		       enter a bug report at http://sourceforge.net/projects/l2tpd", __FUNCTION__);
+     return -EINVAL;
+ }
+diff -pur l2tpd-0.69.orig/network.c l2tpd-0.69/network.c
+--- l2tpd-0.69.orig/network.c	2002-04-10 22:09:33.000000000 +0200
++++ l2tpd-0.69/network.c	2003-07-13 04:51:29.000000000 +0200
+@@ -364,7 +364,7 @@ void network_thread ()
+                 extract (buf->start, &tunnel, &call);
+                 if (debug_network)
+                 {
+-                    log (LOG_DEBUG, "%s: recv packet from %s, size = %d,
++                    log (LOG_DEBUG, "%s: recv packet from %s, size = %d,\n\
+ tunnel = %d, call = %d\n", __FUNCTION__, inet_ntoa (from.sin_addr), recvsize, tunnel, call);
+                 }
+                 if (packet_dump)
