@@ -1,7 +1,5 @@
 sources:
-  "l2tpd-0.69.tar.bz2:"	4bfd002c7ed8e3994ca091d12d2f9e306a0fb262
-  "l2tpd.conf.bz2:"	cc094649c1a489370b11a0c36cde27119c8911a3
-  "l2tpd-init.bz2:"	457b94f2ecf60b33b7f0bc64ce357bb8c38cc927
-  "l2tpd-L2TPD-CERT.conf:"	c41aa22b56d70bc88d303fcacc05b65f5a63ad61
-  "l2tpd-L2TPD-PSK.conf:"	072d3b09641da79252779518e5e6c269c6af6ca4
-  "l2tpd-options.l2tpd.bz2:"	39b8c5d4d30f8c1402cabd51499ae191e29a0850
+  "l2tpd-0.69.tar.bz2": 4bfd002c7ed8e3994ca091d12d2f9e306a0fb262
+  "l2tpd-init.bz2": 457b94f2ecf60b33b7f0bc64ce357bb8c38cc927
+  "l2tpd-options.l2tpd.bz2": 39b8c5d4d30f8c1402cabd51499ae191e29a0850
+  "l2tpd.conf.bz2": cc094649c1a489370b11a0c36cde27119c8911a3

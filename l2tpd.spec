@@ -94,3 +94,106 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %{_sysconfdir}/ipsec.d/*
 %config(noreplace) %{_initrddir}/%{name}
 
+
+
+%changelog
+* Fri Dec 10 2010 Oden Eriksson <oeriksson@mandriva.com> 0.69-21mdv2011.0
++ Revision: 620045
+- the mass rebuild of 2010.0 packages
+
+* Fri Sep 11 2009 Thierry Vignaud <tv@mandriva.org> 0.69-20mdv2010.0
++ Revision: 438173
+- rebuild
+
+* Tue Oct 14 2008 Michael Scherer <misc@mandriva.org> 0.69-19mdv2009.1
++ Revision: 293708
+- bunzip patches
+- fix license, and website
+- bunzip the configuration, that was placed on disk directly compressed
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+    - fix spacing at top of description
+
+* Fri Feb 08 2008 Thierry Vignaud <tv@mandriva.org> 0.69-16mdv2008.1
++ Revision: 164089
+- require coreutils instead of fileutils
+- kill re-definition of %%buildroot on Pixel's request
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Tue Dec 04 2007 Thierry Vignaud <tv@mandriva.org> 0.69-15mdv2008.1
++ Revision: 114920
+- kill file require on chkconfig
+- import l2tpd
+
+
+* Fri Oct 28 2005 Nicolas Lécureuil <neoclust@mandriva.org> 0.69-15mdk
+- Fix previous changelog
+	- Add patch 5 : fix gcc 4 build 
+	- Fix PreReq
+
+* Fri Oct 28 2005 Nicolas Lécureuil <neoclust@mandriva.org> 0.69-14mdk
+- Rebuild
+
+* Sun Jul 25 2004 Per Øyvind Karlsen <peroyvind@linux-mandrake.com> 0.69-13mdk
+- fix gcc 3.4 build (P4)
+
+* Wed Jul 23 2003 Per Øyvind Karlsen <peroyvind@sintrax.net> 0.69-12mdk
+- fix gcc-3.3 patch (P3)
+
+* Sun Jul 13 2003 Per Øyvind Karlsen <peroyvind@sintrax.net> 0.69-11mdk
+- drop debug flags
+- fix gcc-3.3 build
+
+* Sun Jul 13 2003 Per Øyvind Karlsen <peroyvind@sintrax.net> 0.69-10mdk
+- rebuild
+
+* Thu May 01 2003 Olivier Thauvin <thauvin@aerov.jussieu.fr> 0.69-9mdk
+- distlint error
+
+* Wed Mar 05 2003 Olivier Thauvin <thauvin@aerov.jussieu.fr> 0.69-8mdk
+- Requires =~ s/pppd/ppp/
+
+* Mon Feb 10 2003 Per Øyvind Karlsen <peroyvind@sintrax.net> 0.69-7mdk
+- Cleanups
+- Merged in some of Jacco de Leeuw <jacco2@dds.nl>'s stuff:
+	- Added 'connect-delay' to PPP parameters. This should solve
+	  the Windows 2000 Professional "loopback detected" error.
+	- Config path changed from /etc/l2tp to /etc/l2tpd (seems more logical).
+	- Do not run at boot or install. The original RPM uses a config file
+	  which is completely commented out, but it still starts l2tpd on all
+	  interfaces. Could be a security risk. This RPM does not start l2tpd,
+	  the sysadmin has to edit the config file and start l2tpd explicitly.
+	- Renamed patches to start with l2tpd-
+	- Added some of Jacco's config files
+	      
+
+* Sat Feb 01 2003 Lenny Cartier <lenny@mandrakesoft.com 0.69-6mdk
+- rebuild
+
+* Sat Nov 23 2002 Per Øyvind Karlsen <peroyvind@sintrax.net> 0.69-5mdk
+- bzip2'ed Source1
+- Fixed init script
+- config(noreplace) in files
+
+* Sat Nov 23 2002 Per Øyvind Karlsen <peroyvind@delonic.no> 0.69-4mdk
+- Changed permission on secrets file(thanks to Jacco de Leeuw)
+- Added pppd to Requires(thannks to Jacco again;)
+- Minor cleanups
+- Added a more safe default config with acl enabled
+
+* Mon Oct 21 2002 Lenny Cartier <lenny@mandrakesoft.com> 0.69-3mdk
+- from Per Øyvind Karlsen <peroyvind@delonic.no> :
+	- PreReq and Requires
+	- Fix preun_service
+
+* Thu Oct 17 2002 Per Øyvind Karlsen <peroyvind@delonic.no> 0.69-2mdk
+- Move l2tpd from /usr/bin to /usr/sbin
+- Added SysV initscript
+- Patch0
+- Patch1
+
+* Thu Oct 17 2002 Per Øyvind Karlsen <peroyvind@delonic.no> 0.69-1mdk
+- Initial release
