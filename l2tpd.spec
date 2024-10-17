@@ -6,7 +6,7 @@ Name:		%{name}
 Version:	%{version}
 Release:	%{release}
 License:	GPL v2
-Url:		http://l2tpd.sourceforge.net/
+Url:		https://l2tpd.sourceforge.net/
 Group:		System/Servers
 Source0:	%{name}-%{version}.tar.bz2
 Source1:	%{name}-init.bz2
